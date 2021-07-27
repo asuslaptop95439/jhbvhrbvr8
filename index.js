@@ -10,7 +10,7 @@ const ytdl  =require('ytdl-core')
 
 const port= process.env.PORT || 3000;
 
-app.get("/",(req,res)=>{
+app.get("/",(req,res)=>{    
         res.sendFile(__dirname+ pa)
 
 })
@@ -50,6 +50,10 @@ app.get("/videoInfo",async function(req,res){
         }).pipe(res)
      }
   
+ })
+
+ app.get("/getPort",(req,res)=>{
+    res.status(200).json(PORT);
  })
 
 
