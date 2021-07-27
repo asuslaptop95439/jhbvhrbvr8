@@ -460,7 +460,8 @@
                 else  {
                     console.log("sec")
                 const thumbnail = document.getElementById('thumbnail')
-                const host = "http://localhost:3000/";
+                // const host = "http://localhost:3000/";
+                const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
                 fetch(host + "videoInfo?videoURL=" + videoURL).then(function (res) {
                     return res.json();
                 }).then(function (data) {
@@ -507,7 +508,8 @@
                     const videoURL = document.getElementById('formGroupExampleInput').value.trim();
                  
                 
-                const host="http://localhost:3000/";
+                // const host="http://localhost:3000/";
+                const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
                 // console.log("clicked")
                 window.open(host+"download?videoURL="+videoURL+"&itag="+itag)
         })
