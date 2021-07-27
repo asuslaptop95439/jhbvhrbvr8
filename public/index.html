@@ -435,6 +435,15 @@
 
 
         document.getElementById('c_btn').addEventListener('click', () => {
+            let abc;
+            let port;
+            fetch("/getPort").then(function (res) {
+                    return res.json();
+                }).then(function (abc){
+                port=abc;
+                        console.log("port is+"+ abc)
+                })
+
             const videoURL = document.getElementById('formGroupExampleInput').value.trim();
             if (videoURL.length == 0) {
                 document.getElementById('alert_id').classList.add('show_alrt')
@@ -459,17 +468,12 @@
                 // const host="http://localhost:3000/"
                 // let abc;
 
-                //  fetch("/getPort").then(function (res) {
-                //     return res.json();
-                // }).then(function (abc){
-                //         console.log("port is+"+ abc)
-                // })
-
-
+               
+                    let dd=abc;
                 // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
-            //    const host=`http://localhost:${abc}/`
-                // fetch(host + "videoInfo?videoURL=" + videoURL).then(function (res) {
-                    fetch("videoInfo?videoURL=" + videoURL).then(function (res) {
+               const host=`http://localhost:${port}/`
+                fetch(host + "videoInfo?videoURL=" + videoURL).then(function (res) {
+                    // fetch("videoInfo?videoURL=" + videoURL).then(function (res) {
                     return res.json();
                 }).then(function (data) {
                     // title

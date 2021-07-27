@@ -56,8 +56,8 @@ app.get("/videoInfo",async function(req,res){
  app.get("/getPort",(req,res)=>{
     // res.status(200).json(info)
     console.log(res)
-    let a="keerthan";
-    res.status(200).json(a)
+    
+    res.send(process.env.port)
  })
 
 
