@@ -8,6 +8,7 @@ console.log(pa);
 app.use(express.json())
 const ytdl  =require('ytdl-core')
 
+const port= process.env.PORT || 3000;
 
 app.get("/",(req,res)=>{
         res.sendFile(__dirname+ pa)
@@ -52,6 +53,6 @@ app.get("/videoInfo",async function(req,res){
  })
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("Server Running on port 3000")
 })
