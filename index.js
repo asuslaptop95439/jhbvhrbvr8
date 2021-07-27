@@ -29,6 +29,7 @@ app.get("/videoInfo",async function(req,res){
     const videoURL= req.query.videoURL;
      const info =await ytdl.getInfo(videoURL)
      res.status(200).json(info)
+    console.log(req.query.videoURL)
  
  })
  app.get("/download",(req,res)=>{
@@ -53,8 +54,12 @@ app.get("/videoInfo",async function(req,res){
  })
 
  app.get("/getPort",(req,res)=>{
-    res.status(200).json(PORT);
+    // res.status(200).json(info)
+    console.log(res)
+    let a="keerthan";
+    res.status(200).json(a)
  })
+
 
 
 app.listen(port,()=>{

@@ -448,28 +448,28 @@
                 var match = videoURL.match(regExp);
                 if (!(match && match[2].length == 11) )
                 {
-              
                     document.getElementById('invalid_url_txt').innerHTML="Invalid URL";
                    document.getElementById('alert_id').classList.add('show_alrt')
                    console.log("first")
-             
-
                 }
-          
-        
-         
                 else  {
-                    console.log("port using"+window.location.port)
-
-                    console.log("sec")
+                  console.log("sec")
                 const thumbnail = document.getElementById('thumbnail')
-                const host = `http://localhost:${window.location.port}/`;
-                 
+                // const host = `http://localhost:${window.location.port}/`;
+                // const host="http://localhost:3000/"
+                // let abc;
+
+                //  fetch("/getPort").then(function (res) {
+                //     return res.json();
+                // }).then(function (abc){
+                //         console.log("port is+"+ abc)
+                // })
 
 
                 // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
-            
-                fetch(host + "videoInfo?videoURL=" + videoURL).then(function (res) {
+            //    const host=`http://localhost:${abc}/`
+                // fetch(host + "videoInfo?videoURL=" + videoURL).then(function (res) {
+                    fetch("videoInfo?videoURL=" + videoURL).then(function (res) {
                     return res.json();
                 }).then(function (data) {
                     // title
@@ -515,10 +515,11 @@
                     const videoURL = document.getElementById('formGroupExampleInput').value.trim();
                  
                 
-                const host=`http://localhost:${window.location.port}/`;
+                // const host=`http://localhost:${window.location.port}/`;
                 // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
                 // console.log("clicked")
-                window.open(host+"download?videoURL="+videoURL+"&itag="+itag)
+                // window.open(host+"download?videoURL="+videoURL+"&itag="+itag)
+                window.open("download?videoURL="+videoURL+"&itag="+itag)
         })
 
     </script>
