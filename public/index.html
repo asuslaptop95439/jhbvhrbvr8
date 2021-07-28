@@ -413,13 +413,11 @@
                 <div class="right  w-50 ">
                     <div class="radio_controls">
                         <div class="form-check" id="select_options">
-                            <!-- Example single danger button -->
-                            <!-- <div class="btn-group">
-                                <label for="cars">Choose a car:</label>
-                                    <select class="btn btn-success" name="Formats" id="cars">
-                                 
-                                    </select>
-                            </div> -->
+                            <input class="form-check-input" type="radio" value="mp3" name="flexRadioDefault"
+                            id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            <p class="mp3_cls text-light">mp4</p>
+                        </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" value="mp3" name="flexRadioDefault"
@@ -482,6 +480,7 @@
                     // try {
                     let data;
                     const host = "https://youtube-downloader-by-keerthan.herokuapp.com/"
+                    // const host="http://localhost:3000/"
 
                     fetch(host + "videoInfo?videoURL=" + videoURL).then(function (responce) {
                         return responce.json();
@@ -500,24 +499,26 @@
                         const r_content_id = document.getElementById('r_content_id');
                         r_content_id.classList.add('r_content_cls_show')
 
-                        //formats
-                        var select = document.createElement("select");
-                              select.name = "formats";
-                              select.id = "formats"
-                        for (let i = 0; i < data.formats.length-1; i++)
-                         {  
-                            var option = document.createElement("option");
-                            option.value =data.formats[i].container ;
-                            option.text=data.formats[i].qualityLabel;
-                            select.appendChild(option);
-                         }
-                         var label = document.createElement("label");
-                         label.innerHTML = "Choose formats: "
-                         label.htmlFor = "formats";
+                        //dynamic formats start
+                        // var select = document.createElement("select");
+                        //       select.name = "formats";
+                        //       select.id = "formats"
+                        // for (let i = 0; i < data.formats.length-1; i++)
+                        //  {  
+                        //     var option = document.createElement("option");
+                        //     option.value =data.formats[i].container ;
+                        //     option.text=data.formats[i].qualityLabel;
+                        //     select.appendChild(option);
+                        //  }
+                        //  var label = document.createElement("label");
+                        //  label.innerHTML = "Choose formats: "
+                        //  label.htmlFor = "formats";
 
-                         document.getElementById("select_options").appendChild(label).appendChild(select);
-                        //  end of formtats 
-                        // opasity
+                        //  document.getElementById("select_options").appendChild(label).appendChild(select);
+                    
+                        //dynamic formats ends
+                    
+                        // opacity
                         document.getElementById('img_id').classList.add('opasity_zero')
 
                         //    incrase height
@@ -545,16 +546,28 @@
         });
         // DOWNLOAD 
         document.getElementById('dwld_btn').addEventListener('click', () => {
-
+            let itag;
             // // RADIO BUTTON
-                const select=document.getElementById('formats');
-                const itag= select.options[select.selectedIndex].value;
-               console.log("selected format"+ itag);
+            //     const select=document.getElementById('formats');
+            //     const itag= select.options[select.selectedIndex].value;
+            //    console.log("selected format"+ itag);
+            const flexRadioDefault1= document.getElementById('flexRadioDefault1');
+          const  flexRadioDefault2=document.getElementById('flexRadioDefault2');
+            if(flexRadioDefault1.checked)
+            {
+                itag="mp4"
+            }
+            else
+            {
+                itag="mp3"
+            }
+
         
             const videoURL = document.getElementById('formGroupExampleInput').value.trim();
 
 
-            const host = "http://localhost:3000/"
+            // const host = "http://localhost:3000/"
+            const host = "https://youtube-downloader-by-keerthan.herokuapp.com/"
             // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
             // console.log("clicked")
             // window.open(host+"download?videoURL="+videoURL+"&itag="+itag)

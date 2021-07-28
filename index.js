@@ -37,14 +37,14 @@ app.get("/videoInfo",async function(req,res){
      {
         res.header('Content-Disposition','attachment; filename="video.mp4')
         ytdl(videoURL,{
-            filter: format => format.container=itag,
+            filter: format => format.itag=itag,
         }).pipe(res)
      }
      else if(itag=="mp3")
      {
         res.header('Content-Disposition','attachment; filename="Audio.mp3')
         ytdl(videoURL,{
-            filter: format => format.container=itag,
+            filter: format => format.itag=itag,
         }).pipe(res)
      }
   
