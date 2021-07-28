@@ -21,6 +21,11 @@ app.get("/privacyp",(req,res)=>{
 
 })
 
+app.get("/termsofuse",(req,res)=>{
+    res.sendFile(__dirname+ pa2)
+
+})
+
 app.get("/videoInfo",async function(req,res){
     const videoURL= req.query.videoURL;
      const info =await ytdl.getInfo(videoURL)
@@ -30,24 +35,30 @@ app.get("/videoInfo",async function(req,res){
  })
 
  app.get("/download",(req,res)=>{
+     try {
+        let itag= req.query.itag;
+        console.log(itag);
+        if(itag=="mp3")
+        {
+           const videoURL= req.query.videoURL;
+       
+           res.header("Content-Disposition",'attachment; filename="Audio.mp3')
+           ytdl(videoURL,{
+               filter: format => format.itag==itag,
+           }).pipe(res)
+        }
+        else
+        {
+           const videoURL= req.query.videoURL;
+              res.header("Content-Disposition",'attachment;\ filename="Video.mp4"')
+              ytdl(videoURL,{
+                  filter: format => format.itag==itag,
+              }).pipe(res)
+        }
+     } catch (error) {
+         console.log(error)
+     }
    
-     const videoURL= req.query.videoURL;
-     let itag= req.query.itag;
-     if(itag=="mp4")
-     {
-        res.header('Content-Disposition','attachment; filename="video.mp4')
-        ytdl(videoURL,{
-            filter: format => format.itag=itag,
-        }).pipe(res)
-     }
-     else if(itag=="mp3")
-     {
-        res.header('Content-Disposition','attachment; filename="Audio.mp3')
-        ytdl(videoURL,{
-            filter: format => format.itag=itag,
-        }).pipe(res)
-     }
-  
  })
 
  app.get("/getPort",(req,res)=>{

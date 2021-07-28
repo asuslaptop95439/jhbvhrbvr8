@@ -158,7 +158,7 @@
         justify-content: center;
 
     }
-
+/* changes made recently */
     .main_cont .container .r_content_cls {
         display: flex;
 
@@ -244,6 +244,10 @@
     .main_cont .container .loading .opasity_zero {
         opacity: 0;
     }
+    .main_cont  .container .r_content_cls .right .dwnld_btn button{
+        position: relative;
+        top: 50px;
+    }
 
 
 
@@ -314,10 +318,17 @@
             height: 15px;
 
         }
+        .main_cont  .container .r_content_cls .right .dwnld_btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
 
-        .container .r_content_cls .right .dwnld_btn button {
+      .main_cont  .container .r_content_cls .right .dwnld_btn button {
             position: relative;
-            top: 40px;
+            top: 70px;
+            
+            /* background-color: red !important; */
         }
 
         .max_hight {
@@ -410,20 +421,15 @@
                     </div>
                 </div>
 
-                <div class="right  w-50 ">
+                <div class="right w-50 ">
                     <div class="radio_controls">
                         <div class="form-check" id="select_options">
                         
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="mp3" name="flexRadioDefault"
-                                id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                <p class="mp3_cls text-light">mp3</p>
-                            </label>
-                        </div>
+                       
                     </div>
                     <div class="dwnld_btn  text-center">
-                        <button class="btn btn-primary" id="dwld_btn">Download</button>
+                        <button class="btn btn-primary position-absolute" id="dwld_btn">Download</button>
                     </div>
                 </div>
             </div>
@@ -496,16 +502,41 @@
 
                         //dynamic formats start
                         var select = document.createElement("select");
+                        select.style.borderRadius="6px"
+                        select.style.backgroundColor="orange"
+                        select.style.width="150px"
+                        select.style.position="relative"
+                        select.style.left="20px"
+                        select.style.padding="5px"
+                        select.style.color="white"
                               select.name = "formats";
                               select.id = "formats"
                         for (let i = 0; i < data.formats.length-1; i++)
                          {  
+                             if(data.formats[i].container != "mp4")
+                             {
+                                 continue;
+                             }
                             var option = document.createElement("option");
-                            option.value =data.formats[i].container ;
-                            option.text=data.formats[i].qualityLabel;
+                                // styling options
+                                option.style.backgroundColor="white";
+                                option.style.color="black";
+                            option.value =data.formats[i].itag ;
+                            option.text=data.formats[i].container + "-" +  data.formats[i].qualityLabel;
                             select.appendChild(option);
+                           
                          }
+                         // creating option for mp3
+                         var mp3_option = document.createElement("option");
+                         mp3_option.style.backgroundColor="gray";
+                         mp3_option.style.color="white"
+                            
+
+                             mp3_option.text="Mp3-Audio";
+                             select.appendChild(mp3_option);
+
                          var label = document.createElement("label");
+                         label.style.color="white"
                          label.innerHTML = "Choose formats: "
                          label.htmlFor = "formats";
 
@@ -527,43 +558,29 @@
 
                     })
 
-
-                    // }
-                    // catch (er) 
-                    //     {
-                    //     alert("something")
-                    //     }
-
-
                 }
 
             }
         });
         // DOWNLOAD 
         document.getElementById('dwld_btn').addEventListener('click', () => {
-            let itag;
+         
             // // RADIO BUTTON
-            //     const select=document.getElementById('formats');
-            //     const itag= select.options[select.selectedIndex].value;
-            //    console.log("selected format"+ itag);
-            const flexRadioDefault1= document.getElementById('flexRadioDefault1');
-          const  flexRadioDefault2=document.getElementById('flexRadioDefault2');
-            if(flexRadioDefault1.checked)
+                const select=document.getElementById('formats');
+                // const itag= select.options[select.selectedIndex].value;
+                let itag= document.getElementById('formats').value;
+               console.log("selected format"+ itag);
+            if(itag=="Mp3-Audio")
             {
-                itag="mp4"
+                itag="mp3";
             }
-            else
-            {
-                itag="mp3"
-            }
-
         
             const videoURL = document.getElementById('formGroupExampleInput').value.trim();
 
 
             // const host = "http://localhost:3000/"
             const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
-            // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
+      
             // console.log("clicked")
             // window.open(host+"download?videoURL="+videoURL+"&itag="+itag)
             window.open(host + "download?videoURL=" + videoURL + "&itag=" + itag)
