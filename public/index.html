@@ -413,12 +413,7 @@
                 <div class="right  w-50 ">
                     <div class="radio_controls">
                         <div class="form-check" id="select_options">
-                            <input class="form-check-input" type="radio" value="mp3" name="flexRadioDefault"
-                            id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            <p class="mp3_cls text-light">mp4</p>
-                        </label>
-                        </div>
+                        
                         <div class="form-check">
                             <input class="form-check-input" type="radio" value="mp3" name="flexRadioDefault"
                                 id="flexRadioDefault2">
@@ -500,21 +495,21 @@
                         r_content_id.classList.add('r_content_cls_show')
 
                         //dynamic formats start
-                        // var select = document.createElement("select");
-                        //       select.name = "formats";
-                        //       select.id = "formats"
-                        // for (let i = 0; i < data.formats.length-1; i++)
-                        //  {  
-                        //     var option = document.createElement("option");
-                        //     option.value =data.formats[i].container ;
-                        //     option.text=data.formats[i].qualityLabel;
-                        //     select.appendChild(option);
-                        //  }
-                        //  var label = document.createElement("label");
-                        //  label.innerHTML = "Choose formats: "
-                        //  label.htmlFor = "formats";
+                        var select = document.createElement("select");
+                              select.name = "formats";
+                              select.id = "formats"
+                        for (let i = 0; i < data.formats.length-1; i++)
+                         {  
+                            var option = document.createElement("option");
+                            option.value =data.formats[i].container ;
+                            option.text=data.formats[i].qualityLabel;
+                            select.appendChild(option);
+                         }
+                         var label = document.createElement("label");
+                         label.innerHTML = "Choose formats: "
+                         label.htmlFor = "formats";
 
-                        //  document.getElementById("select_options").appendChild(label).appendChild(select);
+                         document.getElementById("select_options").appendChild(label).appendChild(select);
                     
                         //dynamic formats ends
                     
