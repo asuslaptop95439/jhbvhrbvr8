@@ -13,29 +13,30 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <style>
-    
-   
     .main_cont {
         height: 110vh;
         width: 100vw;
         background-color: rgb(25, 31, 16);
 
     }
-    .main_cont .top{
+
+    .main_cont .top {
         z-index: 999999999;
     }
-    .main_cont .container .title_bg .alert{
-    /* position: relative; */
+
+    .main_cont .container .title_bg .alert {
+        /* position: relative; */
         /* display: none; */
     }
-    .main_cont .container .title_bg .show_alrt
-    {display: flex;
+
+    .main_cont .container .title_bg .show_alrt {
+        display: flex;
         justify-content: center;
         background-color: red;
         color: white;
         display: flex;
     }
-   
+
 
     .main_cont .top .navbar {
         height: 8vh;
@@ -136,8 +137,9 @@
     .main_cont .container .r_content_cls {
         display: flex;
     }
-    .main_cont .container .d_flex{
-        display: flex ;
+
+    .main_cont .container .d_flex {
+        display: flex;
     }
 
     .container .r_content_cls .right {
@@ -146,95 +148,112 @@
         flex-direction: column;
         /* justify-content: center; */
     }
-    .container .r_content_cls .right .radio_controls{
+
+    .container .r_content_cls .right .radio_controls {
         /* background-color: greenyellow; */
         margin-top: -35px;
         margin-bottom: 20px;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        
+
     }
-    .main_cont .container .r_content_cls{
+
+    .main_cont .container .r_content_cls {
         display: flex;
-        
+
         display: none;
     }
-    .main_cont .container .r_content_cls_show{
-            display: flex;
-            flex-direction: row;
-    }   
-    input[type=radio] {
-    width: 20px;
-    height: 20px;
-   
+
+    .main_cont .container .r_content_cls_show {
+        display: flex;
+        flex-direction: row;
     }
-    .mp4_cls ,.mp3_cls{
-        font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+
+    }
+
+    .mp4_cls,
+    .mp3_cls {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 25px;
         position: relative;
         top: -4px;
         padding-right: 10px;
     }
-    .main_cont .top .collapse .links1{
+
+    .main_cont .top .collapse .links1 {
         display: flex;
         flex-direction: column;
-      
+
     }
+
     /* .main_cont .top .navbar .btn_change_height{
 
     } */
-    .main_cont .container .loading i{
+    .main_cont .container .loading i {
         -webkit-animation: rotating 2s linear infinite;
         -moz-animation: rotating 2s linear infinite;
-  -ms-animation: rotating 2s linear infinite;
-  -o-animation: rotating 2s linear infinite;
-  animation: rotating 1.6s linear infinite;
-  
+        -ms-animation: rotating 2s linear infinite;
+        -o-animation: rotating 2s linear infinite;
+        animation: rotating 1.6s linear infinite;
+
     }
-    .main_cont .container .loading img{
-      /* display: none; */
-      /* display: inline;    */
+
+    .main_cont .container .loading img {
+        /* display: none; */
+        /* display: inline;    */
         /* display: none; */
     }
+
     /* .show_loading{ 
         color: white !important;
         display: inline-block;
     } */
-  
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
-  from {
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 
-.main_cont .container .loading img{
-    display: none;
-}
-.main_cont .container .loading .show_loading{
-    opacity: 1;
+    @-webkit-keyframes rotating
+
+    /* Safari and Chrome */
+        {
+        from {
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+
+        to {
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    .main_cont .container .loading img {
+        display: none;
+    }
+
+    .main_cont .container .loading .show_loading {
+        opacity: 1;
         display: inline;
     }
-    .main_cont .container .loading  .opasity_zero{
+
+    .main_cont .container .loading .opasity_zero {
         opacity: 0;
     }
 
-  
+
 
     /* MEDIA QUERY CODE GOES HERE */
     @media only screen and (max-width: 330px) {
         .main_cont .top nav button {
             display: inline-block;
         }
-        .main_cont .container .r_content_cls_show{
+
+        .main_cont .container .r_content_cls_show {
             display: flex;
             flex-direction: column;
         }
@@ -274,56 +293,64 @@
             position: relative;
             top: 48px;
         }
-        .main_cont .container .r_content_cls .left .vid_title p{
+
+        .main_cont .container .r_content_cls .left .vid_title p {
             font-size: 13px;
             margin-top: -20px;
         }
-        .container .r_content_cls .right .radio_controls .form-check label p{
-          
-         font-size: 15px;
-        }
-        .container .r_content_cls .right .radio_controls .form-check{
-             position: relative;
-            top: 50px;
-                }
-        input[type=radio]  {
-        width: 15px;
-        height: 15px;
-   
-    }
-    .container .r_content_cls .right .dwnld_btn button{
-        position: relative;
-        top: 40px;
-    }
-    .max_hight{
-        height: 159vh;
-    }
 
-    .main_cont .top{
-        position: relative !important;
+        .container .r_content_cls .right .radio_controls .form-check label p {
+
+            font-size: 15px;
+        }
+
+        .container .r_content_cls .right .radio_controls .form-check {
+            position: relative;
+            top: 50px;
+        }
+
+        input[type=radio] {
+            width: 15px;
+            height: 15px;
+
+        }
+
+        .container .r_content_cls .right .dwnld_btn button {
+            position: relative;
+            top: 40px;
+        }
+
+        .max_hight {
+            height: 159vh;
+        }
+
+        .main_cont .top {
+            position: relative !important;
+        }
+
+        .main_cont .container .title_bg {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main_cont .container .title_bg h1 span {
+            top: 73px;
+            /* position: absolute; */
+            left: 254px;
+        }
     }
-    .main_cont .container .title_bg{
-        display: flex;
-        flex-direction: column;
-    }
-    .main_cont .container .title_bg h1 span{
-        top: 73px;
-        /* position: absolute; */
-        left: 254px;
-    }
-}
 </style>
 
 <body>
     <div class="main_cont" id="main_cont_id">
-       
+
         <div class="top position-fixed w-100 pos-f-t ">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-dark links1  p-4">
-                    <a href="/privacyp" class="h6 py-2 text-light">Privacy Policy  </a>
-                  
+                    <a href="/privacyp" class="h6 py-2 text-light">Privacy Policy </a>
+
                     <a href="/termsofuse" class="h6 py-2 text-light">Terms of use</a>
-                    
+
                 </div>
             </div>
             <nav class="navbar navbar-dark bg-dark">
@@ -332,8 +359,8 @@
                         <i class="fab fa-youtube"></i><a class="ml-2" href="">DownloadKro!</a>
                     </div>
                     <div class="links">
-                        <a class="link1" href="/privacyp">Privacy Policy   </a>
-                        
+                        <a class="link1" href="/privacyp">Privacy Policy </a>
+
                         <a class="link3" href="/termsofuse">Terms of use</a>
                     </div>
                 </div>
@@ -350,10 +377,10 @@
                 <!-- ALERT -->
                 <div class="alert  show_alert  text-center" id="alert_id" role="alert">
                     <p class="m-0 p-0" id="invalid_url_txt">Please enter URL bellow</p>
-                  </div>
+                </div>
                 <!-- ALERT -->
-               
-                   <!-- ALERT -->
+
+                <!-- ALERT -->
                 <h1 class="my-2 text-warning fw-bold">YouTube Video Downloader<span
                         class="new_badge badge badge-danger">New</span></h1>
             </div>
@@ -367,7 +394,7 @@
                         placeholder="Enter YouTube Video URL/Link">
                 </div>
                 <div class="btns">
-                    <button class="btn btn-primary fw-bold"  onclick="changeText()" id="c_btn">Convert</button>
+                    <button class="btn btn-primary fw-bold" onclick="changeText()" id="c_btn">Convert</button>
 
                 </div>
             </div>
@@ -378,22 +405,25 @@
                         <p class="text-light" id="text-light_id"></p>
                     </div>
                     <div class="thumbnail_cls text-center" id="thumbnail_id">
-                        <img 
-                            height="150px" style="border: 1px solid white;" id="thumb_id" width="300px" alt="thumbnail">
+                        <img height="150px" style="border: 1px solid white;" id="thumb_id" width="300px"
+                            alt="thumbnail">
                     </div>
                 </div>
 
                 <div class="right  w-50 ">
                     <div class="radio_controls">
-                        <div class="form-check">
-                            <input class="form-check-input " type="radio" value="mp4" name="flexRadioDefault" id="flexRadioDefault1"
-                                checked>
-                            <label class="form-check-label " for="flexRadioDefault1">
-                                <p class="mp4_cls text-light">mp4</p>
-                            </label>
+                        <div class="form-check" id="select_options">
+                            <!-- Example single danger button -->
+                            <!-- <div class="btn-group">
+                                <label for="cars">Choose a car:</label>
+                                    <select class="btn btn-success" name="Formats" id="cars">
+                                 
+                                    </select>
+                            </div> -->
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="mp3" name="flexRadioDefault" id="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" value="mp3" name="flexRadioDefault"
+                                id="flexRadioDefault2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 <p class="mp3_cls text-light">mp3</p>
                             </label>
@@ -406,124 +436,129 @@
             </div>
             <div class="loading  hide_loading" id="loading_cont_issd">
                 <!-- <i class="fas fa-5x mt-5 fa-sync text-light" id="loading_icon"></i> -->
-                <img id="img_id" src="https://cutewallpaper.org/21/loading-gif-transparent-background/Download-Loading-Gif-Generator-Transparent-Background-PNG-.gif"  height="130px" width="130px"  alt="">
-                    <h1 class="color_change hide1 show1" id="bojja"></h1>
+                <img id="img_id"
+                    src="https://cutewallpaper.org/21/loading-gif-transparent-background/Download-Loading-Gif-Generator-Transparent-Background-PNG-.gif"
+                    height="130px" width="130px" alt="">
+                <h1 class="color_change hide1 show1" id="bojja"></h1>
             </div>
         </div>
-   
+
     </div>
     <!-- CUSTOM JS SCRIPTS -->
 
     <!-- bojja -->
     <script>
-        let flag=0;
-        function changeText()
-        {  
-             if(flag==1 )
-            {
+        let flag = 0;
+        function changeText() {
+            if (flag == 1) {
                 console.log("putty")
                 document.getElementById('img_id').classList.add('show_loading')
             }
-            
-           
+
+
         }
-   
-        document.getElementById('ham_btn_id').addEventListener('click',()=>{
-                document.getElementById('container_id').classList.toggle('btn_change_height')
+
+        document.getElementById('ham_btn_id').addEventListener('click', () => {
+            document.getElementById('container_id').classList.toggle('btn_change_height')
         })
-     
+
 
 
         document.getElementById('c_btn').addEventListener('click', () => {
-            let abc;
-            let port;
-            fetch("/getPort").then(function (res) {
-                    return res.json();
-                }).then(function (abc){
-                port=abc;
-                        console.log("port is+"+ abc)
-                })
-
             const videoURL = document.getElementById('formGroupExampleInput').value.trim();
             if (videoURL.length == 0) {
                 document.getElementById('alert_id').classList.add('show_alrt')
-                
-                
             }
             // validating youtube URL
-            else if (videoURL != undefined || videoURL != '') 
-            {
+            else if (videoURL != undefined || videoURL != '') {
                 var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
                 var match = videoURL.match(regExp);
-                if (!(match && match[2].length == 11) )
-                {
-                    document.getElementById('invalid_url_txt').innerHTML="Invalid URL";
-                   document.getElementById('alert_id').classList.add('show_alrt')
-                   console.log("first")
+                if (!(match && match[2].length == 11)) {
+                    document.getElementById('invalid_url_txt').innerHTML = "Invalid URL";
+                    document.getElementById('alert_id').classList.add('show_alrt')
+                    console.log("first")
                 }
-                else  {
-                  console.log("sec")
-                const thumbnail = document.getElementById('thumbnail')
-                // const host = `http://localhost:${window.location.port}/`;
-                // const host="http://localhost:3000/"
-                // let abc;
+                else {
+                    // try {
+                    let data;
+                    const host = "https://youtube-downloader-by-keerthan.herokuapp.com/"
 
-               
-                    let dd=abc;
-                // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
-               const host=`http://localhost:${port}/`
-                fetch(host + "videoInfo?videoURL=" + videoURL).then(function (res) {
-                    // fetch("videoInfo?videoURL=" + videoURL).then(function (res) {
-                    return res.json();
-                }).then(function (data) {
-                    // title
-                    let title = data.videoDetails.title;
-                    document.getElementById('text-light_id').innerHTML = title
-                    // thumbnail
-                    let thumbnail = data.videoDetails.thumbnails;
-                    document.getElementById('thumb_id').src=thumbnail[0].url;
-                    const r_content_id= document.getElementById('r_content_id');
-                    r_content_id.classList.add('r_content_cls_show')
-
-                    // opasity
-                    document.getElementById('img_id').classList.add('opasity_zero')
-                    
+                    fetch(host + "videoInfo?videoURL=" + videoURL).then(function (responce) {
+                        return responce.json();
+                    }).then(function (data) {
+                        console.log("Return")
+                        console.log(data)
 
 
-                //    incrase height
-                const main_cont_id= document.getElementById('main_cont_id');
-                main_cont_id.classList.add('max_hight')
-                    flag=0;
+                        let thumbnail = document.getElementById('thumbnail')
+                        // title
+                        let title = data.videoDetails.title;
+                        document.getElementById('text-light_id').innerHTML = title
+                        // thumbnail
+                        thumbnail = data.videoDetails.thumbnails;
+                        document.getElementById('thumb_id').src = thumbnail[0].url;
+                        const r_content_id = document.getElementById('r_content_id');
+                        r_content_id.classList.add('r_content_cls_show')
 
-                }).catch(function (err) {
-                    alert("Something went wrong")
-                })
+                        //formats
+                        var select = document.createElement("select");
+                              select.name = "formats";
+                              select.id = "formats"
+                        for (let i = 0; i < data.formats.length-1; i++)
+                         {  
+                            var option = document.createElement("option");
+                            option.value =data.formats[i].container ;
+                            option.text=data.formats[i].qualityLabel;
+                            select.appendChild(option);
+                         }
+                         var label = document.createElement("label");
+                         label.innerHTML = "Choose formats: "
+                         label.htmlFor = "formats";
+
+                         document.getElementById("select_options").appendChild(label).appendChild(select);
+                        //  end of formtats 
+                        // opasity
+                        document.getElementById('img_id').classList.add('opasity_zero')
+
+                        //    incrase height
+                        const main_cont_id = document.getElementById('main_cont_id');
+                        main_cont_id.classList.add('max_hight')
+                        flag = 0;
+
+
+
+
+
+                    })
+
+
+                    // }
+                    // catch (er) 
+                    //     {
+                    //     alert("something")
+                    //     }
+
+
+                }
+
             }
-        }  
         });
         // DOWNLOAD 
-        document.getElementById('dwld_btn').addEventListener('click',()=>{
-          
-                 // // RADIO BUTTON
-                 let itag
-                    const flexRadioDefault1= document.getElementById('flexRadioDefault1');
-                    const flexRadioDefault2= document.getElementById('flexRadioDefault2');
+        document.getElementById('dwld_btn').addEventListener('click', () => {
 
-                    if(flexRadioDefault1.checked){
-                        itag=flexRadioDefault1.value;
-                    }
-                    else if(flexRadioDefault2.checked)
-                    {
-                        itag=flexRadioDefault2.value;
-                    }
-                    const videoURL = document.getElementById('formGroupExampleInput').value.trim();
-                 
-                
-                // const host=`http://localhost:${window.location.port}/`;
-                // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
-                // console.log("clicked")
-                // window.open(host+"download?videoURL="+videoURL+"&itag="+itag)
-                window.open("download?videoURL="+videoURL+"&itag="+itag)
+            // // RADIO BUTTON
+                const select=document.getElementById('formats');
+                const itag= select.options[select.selectedIndex].value;
+               console.log("selected format"+ itag);
+        
+            const videoURL = document.getElementById('formGroupExampleInput').value.trim();
+
+
+            const host = "http://localhost:3000/"
+            // const host="https://youtube-downloader-by-keerthan.herokuapp.com/"
+            // console.log("clicked")
+            // window.open(host+"download?videoURL="+videoURL+"&itag="+itag)
+            window.open(host + "download?videoURL=" + videoURL + "&itag=" + itag)
         })
 
     </script>
