@@ -1,3 +1,4 @@
+const { json } = require('express');
 const express = require('express');
 const app=express();
 const path= require('path')
@@ -44,8 +45,20 @@ app.get("/videoInfo",async function(req,res){
        
            res.header("Content-Disposition",'attachment; filename="Audio.mp3')
            ytdl(videoURL,{
-               filter: format => format.itag==itag,
+               filter: format => format.itag=="mp3",
            }).pipe(res)
+            // async function getdata()
+            // {
+            //     const videoURL= req.query.videoURL;
+            //    let info =await ytdl.getInfo(videoURL)
+            //     console.log("video id"+ info.videoDetails.videoId)
+
+            //      info =await ytdl.getInfo(info.videoDetails.videoId)
+            //     let audioFormats = ytdl.filterFormats(info.formats, 'audioonly');
+            //     console.log('Formats with only audio: ' + audioFormats.length);
+            // }
+            // getdata()
+               
         }
         else
         {
@@ -60,14 +73,6 @@ app.get("/videoInfo",async function(req,res){
      }
    
  })
-
- app.get("/getPort",(req,res)=>{
-    // res.status(200).json(info)
-    console.log("baclnd")
-    res.status(200).json(process.env.port)
-    // res.send(process.env.port)
- })
-
 
 
 app.listen(port,()=>{

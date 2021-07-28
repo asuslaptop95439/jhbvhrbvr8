@@ -112,6 +112,7 @@
     .main_cont .container .title_bg .new_badge {
         position: absolute;
         font-size: 16px;
+        display: none;
         /* top: 10px; */
 
     }
@@ -350,6 +351,105 @@
             left: 254px;
         }
     }
+    /* MEDIA QUERY 455 PX */
+    @media only screen and (max-width: 480px) {
+        .main_cont .top nav button {
+            display: inline-block;
+        }
+
+        .main_cont .container .r_content_cls_show {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar .topbar_controls .links {
+            display: none;
+        }
+
+        .main_cont .top .navbar {
+            height: 10vh;
+        }
+
+        .main_cont .container .title_bg h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .main_cont .container {
+            top: 10px;
+        }
+
+        .main_cont .container .impts_btns .inpts input {
+            width: 50vw;
+        }
+
+        .main_cont .container .title_sm {
+            font-size: 13px;
+        }
+
+        .main_cont .container .title_bg {
+            display: flex;
+            /* flex-direction: column; */
+        }
+
+        .main_cont .container .title_bg h1 span {
+            font-size: 9px !important;
+            position: relative;
+            top: 48px;
+        }
+
+        .main_cont .container .r_content_cls .left .vid_title p {
+            font-size: 13px;
+            margin-top: -20px;
+        }
+
+        .container .r_content_cls .right .radio_controls .form-check label p {
+
+            font-size: 15px;
+        }
+
+        .container .r_content_cls .right .radio_controls .form-check {
+            position: relative;
+            top: 50px;
+        }
+
+        input[type=radio] {
+            width: 15px;
+            height: 15px;
+
+        }
+        .main_cont  .container .r_content_cls .right .dwnld_btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+
+      .main_cont  .container .r_content_cls .right .dwnld_btn button {
+            position: relative;
+            top: 70px;
+            
+            /* background-color: red !important; */
+        }
+
+        .max_hight {
+            height: 159vh;
+        }
+
+        .main_cont .top {
+            position: relative !important;
+        }
+
+        .main_cont .container .title_bg {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main_cont .container .title_bg h1 span {
+            top: 73px;
+            /* position: absolute; */
+            left: 254px;
+        }
+    }
 </style>
 
 <body>
@@ -397,7 +497,7 @@
             </div>
             <div class="title_sm">
                 <!-- <button class="hidetttt" id="btn1">click</button> -->
-                <p class="text-white">Download Video/Mp3</p>
+                <p class="text-white">By using our service you accept our<a href="/termsofuse" class="text-success"> Terms of Service</a> and <a class="text-success" href="/privacyp"> Privacy Policy</a></p>
             </div>
             <div class="impts_btns">
                 <div class="inpts">
@@ -444,16 +544,14 @@
 
     </div>
     <!-- CUSTOM JS SCRIPTS -->
-
-    <!-- bojja -->
     <script>
         let flag = 0;
-        function changeText() {
+        function changeText() 
+        {
             if (flag == 1) {
                 console.log("putty")
                 document.getElementById('img_id').classList.add('show_loading')
             }
-
 
         }
 
@@ -461,31 +559,38 @@
             document.getElementById('container_id').classList.toggle('btn_change_height')
         })
 
-
-
+        // CONVER BUTTON
         document.getElementById('c_btn').addEventListener('click', () => {
+           let flag_val=false;
+           if(flag_val==true)
+           {
+            location.reload();
+           }
             const videoURL = document.getElementById('formGroupExampleInput').value.trim();
             if (videoURL.length == 0) {
                 document.getElementById('alert_id').classList.add('show_alrt')
             }
             // validating youtube URL
-            else if (videoURL != undefined || videoURL != '') {
+            else if (videoURL != undefined || videoURL != '') 
+            {
                 var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
                 var match = videoURL.match(regExp);
-                if (!(match && match[2].length == 11)) {
+                if (!(match && match[2].length == 11)) 
+                {
                     document.getElementById('invalid_url_txt').innerHTML = "Invalid URL";
                     document.getElementById('alert_id').classList.add('show_alrt')
                     console.log("first")
                 }
                 else {
-                    // try {
-                    let data;
-                    const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
-                    // const host="http://localhost:3000/"
-
-                    fetch(host + "videoInfo?videoURL=" + videoURL).then(function (responce) {
+                  
+                    try {
+                        let data;
+                        // const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
+                        const host="http://localhost:3000/"
+                        flag_val=true;
+                        fetch(host + "videoInfo?videoURL=" + videoURL).then(function (responce) {
                         return responce.json();
-                    }).then(function (data) {
+                        }).then(function (data) {
                         console.log("Return")
                         console.log(data)
 
@@ -517,22 +622,38 @@
                              {
                                  continue;
                              }
-                            var option = document.createElement("option");
-                                // styling options
-                                option.style.backgroundColor="white";
+
+                             if((data.formats[i].container!=null)&&( data.formats[i].qualityLabel!=null))
+                             {
+                                var option = document.createElement("option");
+
+                                 // styling options
+                                 option.style.backgroundColor="white";
                                 option.style.color="black";
-                            option.value =data.formats[i].itag ;
-                            option.text=data.formats[i].container + "-" +  data.formats[i].qualityLabel;
-                            select.appendChild(option);
+
+                                option.value =data.formats[i].itag ;
+                                option.text=data.formats[i].container + "-" +  data.formats[i].qualityLabel;
+                                 select.appendChild(option);
                            
+                             }
+
+                           
+                               
+                             
+                               
+                                   
+                                
+                                
+
+                          
+                          
                          }
                          // creating option for mp3
                          var mp3_option = document.createElement("option");
                          mp3_option.style.backgroundColor="gray";
                          mp3_option.style.color="white"
-                            
 
-                             mp3_option.text="Mp3-Audio";
+                             mp3_option.text="Mp3-Audio(Coming Soon)";
                              select.appendChild(mp3_option);
 
                          var label = document.createElement("label");
@@ -541,9 +662,7 @@
                          label.htmlFor = "formats";
 
                          document.getElementById("select_options").appendChild(label).appendChild(select);
-                    
                         //dynamic formats ends
-                    
                         // opacity
                         document.getElementById('img_id').classList.add('opasity_zero')
 
@@ -551,21 +670,20 @@
                         const main_cont_id = document.getElementById('main_cont_id');
                         main_cont_id.classList.add('max_hight')
                         flag = 0;
-
-
-
-
-
                     })
 
-                }
+                    } catch (error) {
+                        // showing alert
+                        document.getElementById('invalid_url_txt').innerHTML = "Something went wrong! Please refresh";
+                        document.getElementById('alert_id').classList.add('show_alrt')
+                    }
+                       
+                }//else close
 
             }
         });
         // DOWNLOAD 
         document.getElementById('dwld_btn').addEventListener('click', () => {
-         
-            // // RADIO BUTTON
                 const select=document.getElementById('formats');
                 // const itag= select.options[select.selectedIndex].value;
                 let itag= document.getElementById('formats').value;
@@ -574,15 +692,9 @@
             {
                 itag="mp3";
             }
-        
             const videoURL = document.getElementById('formGroupExampleInput').value.trim();
-
-
-            // const host = "http://localhost:3000/"
-            const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
-      
-            // console.log("clicked")
-            // window.open(host+"download?videoURL="+videoURL+"&itag="+itag)
+            const host = "http://localhost:3000/"
+            // const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
             window.open(host + "download?videoURL=" + videoURL + "&itag=" + itag)
         })
 
