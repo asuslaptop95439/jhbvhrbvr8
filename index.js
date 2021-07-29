@@ -69,7 +69,7 @@ app.get("/videoInfo",async function(req,res){
               }).pipe(res)
         }
      } catch (error) {
-         console.log(error)
+         console.log("some thing wrong in dwlod")
      }
    
  })
