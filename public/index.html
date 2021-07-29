@@ -585,8 +585,8 @@
                   
                     try {
                         let data;
-                        // const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
-                        const host="http://localhost:3000/"
+                        const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
+                        // const host="http://localhost:3000/"
                         flag_val=true;
                         fetch(host + "videoInfo?videoURL=" + videoURL).then(function (responce) {
                         return responce.json();
@@ -682,8 +682,8 @@
                 itag="mp3";
             }
             const videoURL = document.getElementById('formGroupExampleInput').value.trim();
-            const host = "http://localhost:3000/"
-            // const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
+            // const host = "http://localhost:3000/"
+            const host = "https://yt-downloader-by-keerthan.herokuapp.com/"
             window.open(host + "download?videoURL=" + videoURL + "&itag=" + itag)
         })
 
